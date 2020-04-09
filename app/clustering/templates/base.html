@@ -1,0 +1,17 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="{% static 'css/result.css' %}" />
+    </head>
+    <body>
+        <script type='text/javascript' src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="{% static 'js/drag.js' %}"></script>
+        <div>
+            {% block upload %}{% endblock %}
+        </div>
+        <div class="kmeans">
+            {% block content %}{% endblock %}
+        </div>
+    </body>
+</html>

@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load dict_key %}
+
+<link rel="stylesheet" href="{% static 'css/result.css' %}" />
+
+{% block content %}
+<div>
+  <h2>CLUSTER NUMBER</h2>
+  <button>1</button>
+  <button>2</button>
+  <button>3</button>
+  <button>4</button>
+  <button>5</button>
+</div>
+
+<div>
+  {% for num in fivenum %}
+  <div id="{{ num }}">
+    <div>
+      <div>クラスタ{{ num|add:"1" }}</div>
+      <table border="1">
+        <tr>
+          <th>クラスタ人数</th>
+          <th>クラスタ人数シェア</th>
+        </tr>
+        <tr>
+          <td>{{ cluster_group_dict|get_item:num }}</td>
+          <td>{{ cluster_shere|get_item:num }}%</td>
+        </tr>
+        <tr>
+          <th>商品１の購入金額</th>
+          <th>商品１の購入金額シェア</th>
+        </tr>
+        <tr>
+          <td>{{ sale1sum|get_item:num }}</td>
+          <td>{{ sale1shere|get_item:num }}%</td>
+        </tr>
+        <tr>
+          <th>商品２の購入金額</th>
+          <th>商品２の購入金額シェア</th>
+        </tr>
+        <tr>
+          <td>{{ sale2sum|get_item:num }}</td>
+          <td>{{ sale2shere|get_item:num }}%</td>
+        </tr>
+      </table>
+    </div>
+    <div>
+      <h2>AGE</h2>
+      <table border="2">
+        <tr>
+          <th>10歳未満</th>
+          <td>{{ age_list.0|get_item:num }}%</td>
+        </tr>
+        <tr>
+          <th>10-19歳</th>
+          <td>{{ age_list.1|get_item:num }}%</td>
+        </tr>
+        <tr>
+          <th>20-29歳</th>
+          <td>{{ age_list.2|get_item:num }}%</td>
+        </tr>
+        <tr>
+          <th>30-39歳</th>
+          <td>{{ age_list.3|get_item:num }}</td>
+        </tr>
+        <tr>
+          <th>40-49歳</th>
+          <td>{{ age_list.4|get_item:num }}%</td>
+        </tr>
+        <tr>
+          <th>50-59歳</th>
+          <td>{{ age_list.5|get_item:num }}%</td>
+        </tr>
+        <tr>
+          <th>60-69歳</th>
+          <td>{{ age_list.6|get_item:num }}%</td>
+        </tr>
+        <tr>
+          <th>70-79歳</th>
+          <td>{{ age_list.7|get_item:num }}%</td>
+        </tr>
+        <tr>
+          <th>80-89歳</th>
+          <td>{{ age_list.8|get_item:num }}%</td>
+        </tr>
+        <tr>
+          <th>90歳以上</th>
+          <td>{{ age_list.9|get_item:num }}%</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+ 
+
+
+
+ 
+
+
+
+
+    
+
+
+
+  </div>
+
+ 
+
+
+  {% endfor %}
+
+  <div></div>
+</div>
+
+
+
+{% endblock %}

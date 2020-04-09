@@ -1,0 +1,11 @@
+<h1>File list</h1>
+
+<a href="{% url 'upload' %}">ファイルをアップロードする</a>
+
+<tbody>
+    {% for file in files %}
+    <p>{{ file.file }}</p>
+    <p>{{ file.id }}</p>
+    <a href="{% url 'result' file.id %}" target="_blank">クラスタリング結果へ</a>
+    {% endfor %}
+</tbody>

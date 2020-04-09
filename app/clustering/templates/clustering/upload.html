@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<script type='text/javascript' src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="{% static 'js/drag.js' %}"></script>
+
+
+{% block upload %}
+<h2>Upload Drag&Drop</h2>
+
+<div id="upload-area" style="height: 100px; width: 100px; background: #DDD;">UPLOAD</div>
+<form enctype="multipart/form-data" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Upload File</button>
+</form>
+
+
+
+{% endblock %}

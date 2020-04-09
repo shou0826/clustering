@@ -1,0 +1,26 @@
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+<h2>Upload</h2>
+
+<div id="upload-area" style="height: 100px; width: 100px; background: #DDD;">UPLOAD</div>
+<form enctype="multipart/form-data" method="post">
+    {% csrf_token %}
+    <input id="upload-file" type="file" name="document">
+    <button type="submit">Upload File</button>
+</form>
+
+{% if url %}
+    <p>Uploaded file: <a href="{{ url }}">{{ url }}</a></p>
+{% endif %}
+
+<script>
+    $(document).ready(function(){
+    $("#upload-area").on("dragover", function(e){
+        e.preventDefault();
+    });
+    $("#upload-area").on("drop", function(e){
+        e.preventDefault();
+        document.getElementById("upload-file").files = e.originalEvent.dataTransfer.files;
+    });
+ });
+</script>
