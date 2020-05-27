@@ -6,7 +6,7 @@ from .views import file_list
 
 urlpatterns = [
     path('upload/', views.upload, name='upload'),
-    path('file_list/', views.file_list, name='file_list'),
+    path('', views.file_list, name='file_list'),
     path('result/<int:number>', views.result, name='result'),
 ]
 
