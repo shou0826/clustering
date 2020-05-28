@@ -2,274 +2,291 @@
 {% load static %}
 {% load dict_key %}
 
-<link rel="stylesheet" href="{% static 'css/result.css' %}" />
+
 
 
 {% block content %}
+<div class="header">
+  <p>CLUSTER RESULT</p>
+</div>
+
+<div class="links">
+  <a href="{% url 'file_list' %}" class="links">FileList</a>
+  <a href="{% url 'upload' %}" class="links">Upload</a>
+</div>
+
 <div class="selector">
   <h2>CLUSTER NUMBER</h2>
-  <button>1</button>
-  <button>2</button>
-  <button>3</button>
-  <button>4</button>
-  <button>5</button>
+  <button id="btn1">1</button>
+  <button id="btn2">2</button>
+  <button id="btn3">3</button>
+  <button id="btn4">4</button>
+  <button id="btn5">5</button>
 </div>
 
 <div>
   {% for i in num %}
-    <div>
-      <h1>クラスタ{{ i|add:'1' }}</h1>   
-    </div>
-    <div>
-      <h2>AGE</h2>
-      <table border="1">
-        {% for k,v in cluster_dict|get_item:'age'|get_all:i %}
-        <tr>
-          <th>{{ k }}</th>
-          <td>{{ v }}%</td>
-        </tr>
-        {% endfor %}
-      </table>
-    </div>
+    <div id="cluster{{ i|add:'1' }}" class="hide">
+      <div class="background_picture">
+        <div class="left">
+          <h1>クラスタ{{ i|add:'1' }}</h1>   
+        </div>
+        
+        <div class="right">
+          <div class="category_block">
+            <h6>AGE</h6>
+            <table border="1">
+              {% for k,v in cluster_dict|get_item:'age'|get_all:i %}
+              <tr>
+                <th>{{ k }}</th>
+                <td>{{ v }}%</td>
+              </tr>
+              {% endfor %}
+            </table>
+          </div>
 
-    <div>
-      <h2>kei_kikan</h2>
-      <table border="1">
-        {% for k,v in cluster_dict|get_item:'kei_kikan'|get_all:i %}
-        <tr>
-          <th>{{ k }}</th>
-          <td>{{ v }}%</td>
-        </tr>
-        {% endfor %}
-      </table>
-    </div>
+          <div class="category_block">
+            <h6>kei_kikan</h6>
+            <table border="1">
+              {% for k,v in cluster_dict|get_item:'kei_kikan'|get_all:i %}
+              <tr>
+                <th>{{ k }}</th>
+                <td>{{ v }}%</td>
+              </tr>
+              {% endfor %}
+            </table>
+          </div>
 
-    <div>
-      <h2>sex</h2>
-      <table border="1">
-        {% for k,v in cluster_dict|get_item:'sex'|get_all:i %}
-        <tr>
-          <th>{{ k }}</th>
-          <td>{{ v }}%</td>
-        </tr>
-        {% endfor %}
-      </table>
-    </div>
+          <div class="category_block">
+            <h6>sex</h6>
+            <table border="1">
+              {% for k,v in cluster_dict|get_item:'sex'|get_all:i %}
+              <tr>
+                <th>{{ k }}</th>
+                <td>{{ v }}%</td>
+              </tr>
+              {% endfor %}
+            </table>
+          </div>
 
-    <div>
-      <h2>kaku_type_code</h2>
-      <table border="1">
-        {% for k,v in cluster_dict|get_item:'kaku_type_code'|get_all:i %}
-        <tr>
-          <th>{{ k }}</th>
-          <td>{{ v }}%</td>
-        </tr>
-        {% endfor %}
-      </table>
-    </div>
+          <div class="category_block">
+            <h6>region_code</h6>
+            <table border="1">
+              {% for k,v in cluster_dict|get_item:'region_code'|get_all:i %}
+              <tr>
+                <th>{{ k }}</th>
+                <td>{{ v }}%</td>
+              </tr>
+              {% endfor %}
+            </table>
+          </div>
 
-    <div>
-      <h2>phone_career</h2>
-      <table border="1">
-        {% for k,v in cluster_dict|get_item:'phone_career'|get_all:i %}
-        <tr>
-          <th>{{ k }}</th>
-          <td>{{ v }}%</td>
-        </tr>
-        {% endfor %}
-      </table>
-    </div>
+          <div class="category_block">
+            <h6>entry_age</h6>
+            <table border="1">
+              {% for k,v in cluster_dict|get_item:'entry_age'|get_all:i %}
+              <tr>
+                <th>{{ k }}</th>
+                <td>{{ v }}%</td>
+              </tr>
+              {% endfor %}
+            </table>
+          </div>
 
-    <div>
-      <h2>taino_count</h2>
-      <table border="1">
-        {% for k,v in cluster_dict|get_item:'taino_count'|get_all:i %}
-        <tr>
-          <th>{{ k }}</th>
-          <td>{{ v }}%</td>
-        </tr>
-        {% endfor %}
-      </table>
-    </div>
+          <div class="category_block">
+            <h6>phone_name</h6>
+            <table border="1">
+              {% for k,v in cluster_dict|get_item:'phone_name'|get_all:i %}
+              <tr>
+                <th>{{ k }}</th>
+                <td>{{ v }}%</td>
+              </tr>
+              {% endfor %}
+            </table>
+          </div>
 
-    <div>
-      <h2>taino_month</h2>
-      <table border="1">
-        {% for k,v in cluster_dict|get_item:'taino_month'|get_all:i %}
-        <tr>
-          <th>{{ k }}</th>
-          <td>{{ v }}%</td>
-        </tr>
-        {% endfor %}
-      </table>
-    </div>
+          <div class="category_block">
+            <h6>phone_career</h6>
+            <table border="1">
+              {% for k,v in cluster_dict|get_item:'phone_career'|get_all:i %}
+              <tr>
+                <th>{{ k }}</th>
+                <td>{{ v }}%</td>
+              </tr>
+              {% endfor %}
+            </table>
+          </div>
 
-    <div>
-      <h2>bill_change_count</h2>
-      <table border="1">
-        {% for k,v in cluster_dict|get_item:'bill_change_count'|get_all:i %}
-        <tr>
-          <th>{{ k }}</th>
-          <td>{{ v }}%</td>
-        </tr>
-        {% endfor %}
-      </table>
-    </div>
+          <div class="category_block">
+            <h6>kaku_type_code</h6>
+            <table border="1">
+              {% for k,v in cluster_dict|get_item:'kaku_type_code'|get_all:i %}
+              <tr>
+                <th>{{ k }}</th>
+                <td>{{ v }}%</td>
+              </tr>
+              {% endfor %}
+            </table>
+          </div>
 
-    <div>
-      <h2>phone_name</h2>
-      <table border="1">
-        {% for k,v in cluster_dict|get_item:'phone_name'|get_all:i %}
-        <tr>
-          <th>{{ k }}</th>
-          <td>{{ v }}%</td>
-        </tr>
-        {% endfor %}
-      </table>
-    </div>
+          <div class="category_block">
+            <h6>taino_count</h6>
+            <table border="1">
+              {% for k,v in cluster_dict|get_item:'taino_count'|get_all:i %}
+              <tr>
+                <th>{{ k }}</th>
+                <td>{{ v }}%</td>
+              </tr>
+              {% endfor %}
+            </table>
+          </div>
 
-    <div>
-      <h2>region_code</h2>
-      <table border="1">
-        {% for k,v in cluster_dict|get_item:'region_code'|get_all:i %}
-        <tr>
-          <th>{{ k }}</th>
-          <td>{{ v }}%</td>
-        </tr>
-        {% endfor %}
-      </table>
-    </div>
+          <div class="category_block">
+            <h6>taino_month</h6>
+            <table border="1">
+              {% for k,v in cluster_dict|get_item:'taino_month'|get_all:i %}
+              <tr>
+                <th>{{ k }}</th>
+                <td>{{ v }}%</td>
+              </tr>
+              {% endfor %}
+            </table>
+          </div>
 
-    <div>
-      <h2>entry_age</h2>
-      <table border="1">
-        {% for k,v in cluster_dict|get_item:'entry_age'|get_all:i %}
-        <tr>
-          <th>{{ k }}</th>
-          <td>{{ v }}%</td>
-        </tr>
-        {% endfor %}
-      </table>
-    </div>
+          <div class="category_block">
+            <h6>bill_change_count</h6>
+            <table border="1">
+              {% for k,v in cluster_dict|get_item:'bill_change_count'|get_all:i %}
+              <tr>
+                <th>{{ k }}</th>
+                <td>{{ v }}%</td>
+              </tr>
+              {% endfor %}
+            </table>
+          </div>
 
-    <div>
-      <h2>plan_id</h2>
-      <table border="1">
-        {% for k,v in cluster_dict|get_item:'plan_id'|get_all:i %}
-        <tr>
-          <th>{{ k }}</th>
-          <td>{{ v }}%</td>
-        </tr>
-        {% endfor %}
-      </table>
-    </div>
+          <div class="category_block">
+            <h6>installment_count</h6>
+            <table border="1">
+              {% for k,v in cluster_dict|get_item:'installment_count'|get_all:i %}
+              <tr>
+                <th>{{ k }}</th>
+                <td>{{ v }}%</td>
+              </tr>
+              {% endfor %}
+            </table>
+          </div>
 
-    <div>
-      <h2>plan_category</h2>
-      <table border="1">
-        {% for k,v in cluster_dict|get_item:'plan_category'|get_all:i %}
-        <tr>
-          <th>{{ k }}</th>
-          <td>{{ v }}%</td>
-        </tr>
-        {% endfor %}
-      </table>
-    </div>
+          <div class="category_block">
+            <h6>selling_method_code</h6>
+            <table border="1">
+              {% for k,v in cluster_dict|get_item:'selling_method_code'|get_all:i %}
+              <tr>
+                <th>{{ k }}</th>
+                <td>{{ v }}%</td>
+              </tr>
+              {% endfor %}
+            </table>
+          </div>
 
-    <div>
-      <h2>installment_count</h2>
-      <table border="1">
-        {% for k,v in cluster_dict|get_item:'installment_count'|get_all:i %}
-        <tr>
-          <th>{{ k }}</th>
-          <td>{{ v }}%</td>
-        </tr>
-        {% endfor %}
-      </table>
-    </div>
+          <div class="category_block">
+            <h6>pay_way_code</h6>
+            <table border="1">
+              {% for k,v in cluster_dict|get_item:'pay_way_code'|get_all:i %}
+              <tr>
+                <th>{{ k }}</th>
+                <td>{{ v }}%</td>
+              </tr>
+              {% endfor %}
+            </table>
+          </div>
 
-    <div>
-      <h2>campaign_code</h2>
-      <table border="1">
-        {% for k,v in cluster_dict|get_item:'campaign_code'|get_all:i %}
-        <tr>
-          <th>{{ k }}</th>
-          <td>{{ v }}%</td>
-        </tr>
-        {% endfor %}
-      </table>
-    </div>
+          <div class="category_block">
+            <h6>plan_id</h6>
+            <table border="1">
+              {% for k,v in cluster_dict|get_item:'plan_id'|get_all:i %}
+              <tr>
+                <th>{{ k }}</th>
+                <td>{{ v }}%</td>
+              </tr>
+              {% endfor %}
+            </table>
+          </div>
 
-    <div>
-      <h2>campaign_code_2</h2>
-      <table border="1">
-        {% for k,v in cluster_dict|get_item:'campaign_code_2'|get_all:i %}
-        <tr>
-          <th>{{ k }}</th>
-          <td>{{ v }}%</td>
-        </tr>
-        {% endfor %}
-      </table>
-    </div>
+          <div class="category_block">
+            <h6>plan_category</h6>
+            <table border="1">
+              {% for k,v in cluster_dict|get_item:'plan_category'|get_all:i %}
+              <tr>
+                <th>{{ k }}</th>
+                <td>{{ v }}%</td>
+              </tr>
+              {% endfor %}
+            </table>
+          </div>
 
-    <div>
-      <h2>campaign_code_3</h2>
-      <table border="1">
-        {% for k,v in cluster_dict|get_item:'campaign_code_3'|get_all:i %}
-        <tr>
-          <th>{{ k }}</th>
-          <td>{{ v }}%</td>
-        </tr>
-        {% endfor %}
-      </table>
-    </div>
+          <div class="category_block">
+            <h6>campaign_code</h6>
+            <table border="1">
+              {% for k,v in cluster_dict|get_item:'campaign_code'|get_all:i %}
+              <tr>
+                <th>{{ k }}</th>
+                <td>{{ v }}%</td>
+              </tr>
+              {% endfor %}
+            </table>
+          </div>
 
-    <div>
-      <h2>campaign_code_4</h2>
-      <table border="1">
-        {% for k,v in cluster_dict|get_item:'campaign_code_4'|get_all:i %}
-        <tr>
-          <th>{{ k }}</th>
-          <td>{{ v }}%</td>
-        </tr>
-        {% endfor %}
-      </table>
-    </div>
+          <div class="category_block">
+            <h6>campaign_code_2</h6>
+            <table border="1">
+              {% for k,v in cluster_dict|get_item:'campaign_code_2'|get_all:i %}
+              <tr>
+                <th>{{ k }}</th>
+                <td>{{ v }}%</td>
+              </tr>
+              {% endfor %}
+            </table>
+          </div>
 
-    <div>
-      <h2>channel</h2>
-      <table border="1">
-        {% for k,v in cluster_dict|get_item:'channel'|get_all:i %}
-        <tr>
-          <th>{{ k }}</th>
-          <td>{{ v }}%</td>
-        </tr>
-        {% endfor %}
-      </table>
-    </div>
+          <div class="category_block">
+            <h6>campaign_code_3</h6>
+            <table border="1">
+              {% for k,v in cluster_dict|get_item:'campaign_code_3'|get_all:i %}
+              <tr>
+                <th>{{ k }}</th>
+                <td>{{ v }}%</td>
+              </tr>
+              {% endfor %}
+            </table>
+          </div>
 
-    <div>
-      <h2>selling_method_code</h2>
-      <table border="1">
-        {% for k,v in cluster_dict|get_item:'selling_method_code'|get_all:i %}
-        <tr>
-          <th>{{ k }}</th>
-          <td>{{ v }}%</td>
-        </tr>
-        {% endfor %}
-      </table>
-    </div>
+          <div class="category_block">
+            <h6>campaign_code_4</h6>
+            <table border="1">
+              {% for k,v in cluster_dict|get_item:'campaign_code_4'|get_all:i %}
+              <tr>
+                <th>{{ k }}</th>
+                <td>{{ v }}%</td>
+              </tr>
+              {% endfor %}
+            </table>
+          </div>
 
-    <div>
-      <h2>pay_way_code</h2>
-      <table border="1">
-        {% for k,v in cluster_dict|get_item:'pay_way_code'|get_all:i %}
-        <tr>
-          <th>{{ k }}</th>
-          <td>{{ v }}%</td>
-        </tr>
-        {% endfor %}
-      </table>
+          <div class="category_block">
+            <h6>channel</h6>
+            <table border="1">
+              {% for k,v in cluster_dict|get_item:'channel'|get_all:i %}
+              <tr>
+                <th>{{ k }}</th>
+                <td>{{ v }}%</td>
+              </tr>
+              {% endfor %}
+            </table>
+          </div>
+
+        </div>
+      </div>
     </div>
 
   {% endfor %}

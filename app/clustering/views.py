@@ -399,23 +399,7 @@ def result(request, number):
         plan_category_dict, installment_count_dict, campaign_code_dict, campaign_code_2_dict,campaign_code_3_dict, 
         campaign_code_4_dict, channel_dict, selling_method_code_dict, pay_way_code_dict]
     cluster_dict = dict(zip(data_key, data_value))
-    num = [0,1,2,3,4]
-
-
-
-
-   
-    
-
-
-
-
-
-
-
-
-    
-
+    num = [0,1,2,3,4]    
 
     context = {
         'category_data': category_data,

@@ -1,0 +1,12 @@
+#upload-area {
+    background-color: gray;
+    height: 200px;
+    width: 400px;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+#upload-form {
+    margin-top: 15px;
+}

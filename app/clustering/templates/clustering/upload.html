@@ -6,13 +6,21 @@
 
 
 {% block upload %}
+<div class="header">
+    <p>UPLOAD</p>
+</div>
+  
+<div class="links">
+    <a href="{% url 'file_list' %}" class="links">FileList</a>
+</div>
+
 <h2>Upload Drag&Drop</h2>
 
-<div id="upload-area" style="height: 100px; width: 100px; background: #DDD;">UPLOAD</div>
-<form enctype="multipart/form-data" method="post">
+<div id="upload-area">ここにCSVファイルをドロップしてください</div>
+<form id="upload-form" enctype="multipart/form-data" method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Upload File</button>
+    <button type="submit">送信</button>
 </form>
 
 
