@@ -49,7 +49,7 @@ parso==0.6.2
 pexpect==4.8.0
 pickleshare==0.7.5
 Pillow==7.1.1
-pipenv==2018.11.26
+pipenv==2022.1.8
 proglog==0.1.9
 prometheus-client==0.7.1
 prompt-toolkit==3.0.4
